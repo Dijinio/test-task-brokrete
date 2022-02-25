@@ -14,7 +14,7 @@ function TileItem({
   useEffect(() => {
     const timer = setInterval(() => {
       handleGeneratedNumber(valRef.current.number);
-      // handleValueDecrease(id);
+      handleValueDecrease(id);
     }, valRef.current.number * 1000);
 
     return () => clearInterval(timer);
