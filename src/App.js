@@ -14,18 +14,25 @@ function App() {
   function generateNumber() {
     const randomNum = Math.ceil(Math.random() * 9);
     const newNum = { id: Date.now(), number: randomNum };
-    setGeneratedNumbers((prev) => [...prev, randomNum]);
+
     setTileValues((prev) => [...prev, newNum]);
   }
 
-  console.log(generatedNumbers);
+  function handleGeneratedNumber(tValue) {
+    setGeneratedNumbers((prev) => [...prev, tValue]);
+  }
+
   return (
     <div className="app-container">
       <h1>Test Application</h1>
       <p className="generated-numbers">{generatedNumbers.join("")}</p>
       <div className="tile-container">
         {tileValues.map((val) => (
-          <TileItem tValue={val.number} key={val.id} />
+          <TileItem
+            tValue={val}
+            key={val.id}
+            handleGeneratedNumber={handleGeneratedNumber}
+          />
         ))}
         <span className="tile-item add-btn" onClick={() => generateNumber()}>
           +
