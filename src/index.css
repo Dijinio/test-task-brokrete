@@ -60,11 +60,17 @@ code {
   cursor: pointer;
   transition: filter 0.3s ease-in-out;
   z-index: 1;
+  user-select: none;
 }
 
 .tile-item.add-btn {
   background-color: greenyellow;
   font-size: 10rem;
+}
+
+.tile-item.large-tile {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 .tile-item:hover {
