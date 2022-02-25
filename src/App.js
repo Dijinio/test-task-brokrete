@@ -48,8 +48,8 @@ function App() {
   return (
     <div className="app-container">
       <h1>Test Application</h1>
-      <p className="generated-numbers">{generatedNumbers.join("")}</p>
       <div className="tile-container">
+        <p className="generated-numbers">{generatedNumbers.join("")}</p>
         {tileValues.map((val) => (
           <TileItem
             tValue={val}
