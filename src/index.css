@@ -50,6 +50,7 @@ code {
 }
 
 .tile-item {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +59,7 @@ code {
   font-size: 6rem;
   cursor: pointer;
   transition: filter 0.3s ease-in-out;
+  z-index: 1;
 }
 
 .tile-item.add-btn {
@@ -66,5 +68,20 @@ code {
 }
 
 .tile-item:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.5);
+}
+
+.close-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 5px;
+  right: 5px;
+  font-size: 3rem;
+  transition: color 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.close-btn:hover {
+  color: grey;
 }

@@ -22,6 +22,11 @@ function App() {
     setGeneratedNumbers((prev) => [...prev, tValue]);
   }
 
+  function handleTileRemove(id) {
+    const newTiles = tileValues.filter((v) => v.id !== id);
+    setTileValues(newTiles);
+  }
+
   return (
     <div className="app-container">
       <h1>Test Application</h1>
@@ -32,6 +37,7 @@ function App() {
             tValue={val}
             key={val.id}
             handleGeneratedNumber={handleGeneratedNumber}
+            handleTileRemove={handleTileRemove}
           />
         ))}
         <span className="tile-item add-btn" onClick={() => generateNumber()}>
