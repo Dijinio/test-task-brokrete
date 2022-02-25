@@ -1,16 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-function TileItem({ tValue, handleGeneratedNumber, handleTileRemove }) {
+function TileItem({
+  tValue,
+  handleGeneratedNumber,
+  handleTileRemove,
+  handleValueDecrease,
+}) {
   const { id, number } = tValue;
   const [largeTile, setLargeTile] = useState(false);
 
+  const valRef = useRef(tValue);
+
   useEffect(() => {
     const timer = setInterval(() => {
-      handleGeneratedNumber(number);
-    }, number * 1000);
+      handleGeneratedNumber(valRef.current.number);
+      handleValueDecrease(id);
+    }, valRef.current.number * 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [number]);
 
   return (
     <span
